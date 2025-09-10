@@ -11,4 +11,4 @@ jobs:
   b-concurrency:
     runs-on: ubuntu-latest
     steps:
-      - run: sleep 35s
+      - run: sleep 85s

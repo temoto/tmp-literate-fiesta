@@ -10,4 +10,4 @@ jobs:
       - uses: fkirc/skip-duplicate-actions@v5
         with:
           cancel_others: true
-      - run: sleep 35s
+      - run: sleep 85s
