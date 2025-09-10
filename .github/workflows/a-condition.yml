@@ -5,7 +5,7 @@ on:
 
 jobs:
   a-condition:
-    if: github.event_name == 'push' || github.event.pull_request.head.repo.fork
+    if: github.event_name == 'push' || github.event.pull_request.head.repo.full_name != 'tmp-sliver-forest/tmp-literate-fiesta'
     runs-on: ubuntu-latest
     steps:
       - run: sleep 85s
