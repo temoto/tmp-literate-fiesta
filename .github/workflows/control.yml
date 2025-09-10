@@ -1,0 +1,10 @@
+name: z-control
+on:
+  push:
+  pull_request:
+
+jobs:
+  z-control:
+    runs-on: ubuntu-latest
+    steps:
+      - run: sleep 35s
