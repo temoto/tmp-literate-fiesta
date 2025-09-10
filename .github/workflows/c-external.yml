@@ -1,0 +1,13 @@
+name: c-external
+on:
+  push:
+  pull_request:
+
+jobs:
+  c-external:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: fkirc/skip-duplicate-actions@v5
+        with:
+          cancel_others: true
+      - run: sleep 35s

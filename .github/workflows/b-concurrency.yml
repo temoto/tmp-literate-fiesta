@@ -1,0 +1,14 @@
+name: b-concurrency
+on:
+  push:
+  pull_request:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  b-concurrency:
+    runs-on: ubuntu-latest
+    steps:
+      - run: sleep 35s

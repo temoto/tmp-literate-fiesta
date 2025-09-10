@@ -1,0 +1,11 @@
+name: a-condition
+on:
+  push:
+  pull_request:
+
+jobs:
+  a-condition:
+    if: github.event_name == 'push' || github.event.pull_request.head.repo.fork
+    runs-on: ubuntu-latest
+    steps:
+      - run: sleep 35s
