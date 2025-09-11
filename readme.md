@@ -35,3 +35,22 @@ Solution options:
   TODO verify.
   Pros: clean, probably skips (not cancels).
   Cons: external dependance, even if cancels_others for whole workflow it is configured in some primary job or in all.
+
+# Results
+
+1. Condition works and is fastest way. New syntax `repo.fork` avoids repeating repo name.
+2. Concurrency is cleanest, but for quick actions often does not trigger. When it does trigger, shows red cross marker. Sometimes triggers runner-level cancel, something about transferrable jobs.
+3. Could not make skip-duplicate-actions to work at all. Same name from another source: step-security/skip-duplicate-actions returns "Error: Subscription is not valid." when called within forked repo, before PR. Sometimes triggers runner-level cancel, something about transferrable jobs.
+
+## Conclusion
+
+IMHO, this is the winner:
+
+```yaml
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push' || github.event.pull_request.head.repo.fork
+    steps:
+      ...
+```
